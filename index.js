@@ -2,6 +2,7 @@ const books = [];
 
 function bookConfig(bookTitle, bookDesc) {
     return {
+        id: crypto.randomUUID(),
         titleOfBook: bookTitle,
         descOfBook: bookDesc,
         hasRead: false // starts as false, later we will have a check input to change its state
@@ -12,6 +13,7 @@ function addBookToLibrary(book) {
     books.push(book);
 
     const li = document.createElement('li');
+    li.id = book.id;
 
     const spanForTitle = document.createElement('span');
     const spanForDesc = document.createElement('span');
